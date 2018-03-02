@@ -39,7 +39,7 @@
 #include <unistd.h>
 
 #define LOG_TAG "QCOM R11s PowerHAL"
-#include <utils/Log.h>
+#include <log/Log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
