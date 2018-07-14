@@ -7,3 +7,7 @@ on init
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     # Bind mount manifest.xml
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
+
+on boot
+    # OTG
+    write /sys/class/power_supply/usb/otg_switch 1

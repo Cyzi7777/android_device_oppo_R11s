@@ -123,7 +123,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netflix
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q660-13149-1 \
+    ro.netflix.bsp_rev=Q660-13149-1
+
+# OTG
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.oem.otg_support=true
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
