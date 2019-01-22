@@ -119,3 +119,14 @@ PRODUCT_BOOT_JARS += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
+
+# Touch
+PRODUCT_PACKAGES += \
+    lineage.touch@1.0-service.oppo_sdm660
+
+# WiFi Display
+PRODUCT_PACKAGES += \
+    libnl
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
