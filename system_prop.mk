@@ -27,7 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.preview.ubwc=0 \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # Data module
 PRODUCT_PROPERTY_OVERRIDES += \
