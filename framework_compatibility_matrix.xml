@@ -194,14 +194,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.oppo.hardware.biometrics.fingerprintpay</name>
-        <version>1.0</version>
-        <interface>
-            <name>IFingerprintPay</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.oppo.hardware.camera.oppopostproc</name>
         <version>1.0</version>
         <interface>
@@ -222,22 +214,6 @@
         <version>1.0</version>
         <interface>
             <name>IKtv</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oppo.hardware.oiface</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOiface</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.oppo.hardware.wifi.sniffer</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOppoWifiSniffer</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -490,14 +466,6 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.wifi.wifilearner</name>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiStats</name>
-            <instance>wifiStats</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.wigig.netperftuner</name>
         <version>1.0</version>
         <interface>
@@ -510,14 +478,6 @@
         <version>1.0</version>
         <interface>
             <name>ISuppTunnelProvider</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.wipower</name>
-        <version>1.0</version>
-        <interface>
-            <name>IWipower</name>
             <instance>default</instance>
         </interface>
     </hal>
