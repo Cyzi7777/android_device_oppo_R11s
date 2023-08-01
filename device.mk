@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/etc/manifest.xml
+
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common
