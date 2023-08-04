@@ -129,6 +129,11 @@ lib/vendor.qti.hardware.iop@1.0.so
 lib/vendor.qti.hardware.iop@2.0.so
 lib/vendor.qti.hardware.perf@1.0.so
 
+# Power-off alarm
+framework/vendor.qti.hardware.alarm-V1.0-java.jar
+lib/vendor.qti.hardware.alarm@1.0.so
+lib64/vendor.qti.hardware.alarm@1.0.so
+
 # Radio
 -app/QtiTelephonyService/QtiTelephonyService.apk
 etc/permissions/qcrilhook.xml
