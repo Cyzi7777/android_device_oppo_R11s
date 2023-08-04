@@ -72,6 +72,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.oppo.fingerprints.rc \
     init.qcom.rc \
     fstab.qcom
 
