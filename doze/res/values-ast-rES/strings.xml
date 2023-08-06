@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2013-2016 The CyanogenMod Project
+               (C) 2017 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="device_settings_app_name">Axustes avanzaos</string>
+    <string name="screen_gestures_panel_title">Xestos</string>
+    <string name="touchscreen_c_gesture_title">Cámara</string>
+    <string name="touchscreen_w_gesture_title">Restolador</string>
+    <string name="touchscreen_z_gesture_title">Llinterna</string>
+    <string name="touchscreen_flashlight_gesture_title">Llinterna</string>
+    <string name="ambient_display_gestures_summary">Xestos adicionales pa esconsoñar la pantalla</string>
+    <string name="ambient_display_always_on_summary">Amuesa la hora, los iconos d\'avisu y otra información. L\'usu de la batería ye mayor.</string>
+    <string name="actions_title">Aiciones</string>
+    <string name="dialog_ok">D\'acuerdu</string>
+    <string name="doze_settings_help_title">Ayuda</string>
+    <string name="button_panel_title">Botones adicionales</string>
+    <string name="fingerprint_sleep_summary">Pimi\'l sensor de buelgues p\'apagar la pantalla</string>
+</resources>
