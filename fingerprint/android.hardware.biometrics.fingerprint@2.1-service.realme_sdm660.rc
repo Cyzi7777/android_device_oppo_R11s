@@ -5,4 +5,3 @@ service fps_hal.oppo_sdm660 /system/bin/hw/android.hardware.biometrics.fingerpri
     class late_start
     user system
     group system input uhid
-    writepid /dev/cpuset/system-background/tasks
