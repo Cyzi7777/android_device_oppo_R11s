@@ -7,6 +7,9 @@ on init
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
     # Bind mount manifest.xml
     mount none /system/etc/manifest.xml /vendor/etc/vintf/manifest.xml bind
+    # Bind mount libvolumelistener with /vendor/(lib|lib64)/soundfx/
+    mount none /system/lib64/soundfx/libvolumelistener.so /vendor/lib64/soundfx/libvolumelistener.so bind
+    mount none /system/lib/soundfx/libvolumelistener.so /vendor/lib/soundfx/libvolumelistener.so bind
 
 on boot
     # OTG

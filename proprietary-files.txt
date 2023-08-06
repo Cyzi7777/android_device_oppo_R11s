@@ -1,3 +1,7 @@
+# Audio
+vendor/lib64/soundfx/libvolumelistener.so
+vendor/lib/soundfx/libvolumelistener.so
+
 # Camera calibration files
 etc/camera/ashdr/ncf_pack.ncf
 etc/camera/cp/CPCalibrationData.bin
