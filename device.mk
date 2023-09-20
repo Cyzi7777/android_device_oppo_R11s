@@ -141,6 +141,7 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.oppo.rc \
     init.oppo.fingerprints.rc \
     init.class_main.sh \
     init.msm.usb.configfs.rc \
@@ -151,6 +152,7 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
+    init.qti.qseecomd.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc

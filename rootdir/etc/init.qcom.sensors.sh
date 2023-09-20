@@ -34,6 +34,10 @@ start_sensors()
     sscrpcd_status=`getprop init.svc.vendor.sensors`
     chmod -h 664 /persist/sensors/sensors_settings
     chown -h -R system.system /persist/sensors
+    #ifdef VENDOR_EDIT
+    #Weizhi.Chen@PSW.BSP.Sensor, 2019/07/23, Add for changing sensor group for ota
+    chown -h -R system.system /mnt/vendor/persist/sensors
+    #endif /* VENDOR_EDIT */
     start vendor.sensors.qti
 
     # Only for SLPI

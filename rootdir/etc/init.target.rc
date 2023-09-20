@@ -41,6 +41,10 @@ on init
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    #ifdef VENDOR_EDIT
+    #Xuefeng.Peng@PSW.AD.Storage.ReservePartition.1207580, 2018/11/19, Add for change opporeserve mount point for google GSI test
+    mkdir /mnt/vendor/opporeserve 0771 system system
+    #endif /*VENDOR_EDIT*/
     mount_all /vendor/etc/fstab.qcom
     swapon_all /vendor/etc/fstab.qcom
     chown root system /mnt/vendor/persist
@@ -63,7 +67,10 @@ on post-fs-data
     mkdir /data/tombstones/lpass 0771 system system
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
-    mkdir /data/vendor/hbtp 0750 system system
+#ifndef VENDOR_EDIT
+#Ping.Zhang@psw.bsp.tp 2019/06/04 del for closing hbtp
+#    mkdir /data/vendor/hbtp 0750 system system
+#endif
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/vendor/tloc 0700 system drmrpc
 
@@ -191,6 +198,10 @@ service thermal-engine /system/vendor/bin/thermal-engine
 #    class core
 #    oneshot
 #
+service time_daemon /system/vendor/bin/time_daemon
+   class late_start
+   user root
+   group root
 
 service adsprpcd_root /vendor/bin/adsprpcd
    class main
@@ -202,11 +213,13 @@ service adsprpcd /vendor/bin/adsprpcd audiopd
    user media
    group media
 
-service hbtp /system/vendor/bin/hbtp_daemon
-    class main
-    user system
-    group system
-    disabled
+#ifndef VENDOR_EDIT
+#Ping.Zhang@psw.bsp.tp 2019/06/04 del for closing hbtp
+#service hbtp /system/vendor/bin/hbtp_daemon
+#    class main
+#    user system
+#    group system
+#    disabled
 
 service audiod /system/vendor/bin/audiod
    class late_start
@@ -368,14 +381,47 @@ service vendor.pd_mapper /system/vendor/bin/pd-mapper
 on property:vendor.ims.QMI_DAEMON_STATUS=1
     start vendor.imsdatadaemon
 
-on property:vold.decrypt=trigger_restart_framework
-   start cnss_diag
+#ifndef VENDOR_EDIT
+#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
+#Remove for wifi log enhance function
+#on property:vold.decrypt=trigger_restart_framework
+#  start cnss_diag
+#endif
 
 service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
    class main
    user system
    group system wifi inet sdcard_rw media_rw diag
-   oneshot
+#ifdef VENDOR_EDIT
+#Pan.Zhang@PSW.CN.WiFi.Basic.Log.1072015, 2016/08/03,
+#Add for wifi log enhance function
+    #oneshot
+#else
+    disabled
+#Yuan.Huang@PSW.CN.WiFi.Network.internet.1140781, 2017/12/21,
+#Modify for data stall enable log by default
+on property:persist.sys.assert.panic=true
+    stop cnss_diag_b
+    start cnss_diag
+
+on property:persist.sys.assert.panic=false
+    stop cnss_diag
+    start cnss_diag_b
+
+on property:vendor.wifi.ftm=1
+    stop cnss_diag
+    stop cnss_diag_b
+
+service cnss_diag_b /system/vendor/bin/cnss_diag -q -u -w -b 4096
+    class main
+    user system
+    group system wifi inet net_admin sdcard_rw media_rw diag
+    disabled
+#endif
+
+on property:vold.decrypt=trigger_restart_framework && property:persist.sys.assert.panic=true
+    start cnss_diag
+#endif /* VENDOR_EDIT */
 
 service vendor.ims_rtp_daemon /system/vendor/bin/ims_rtp_daemon
    class main
@@ -453,10 +499,13 @@ service vendor.tlocd /vendor/bin/tloc_daemon
     user system
     group drmrpc gps net_raw
 
-service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
-     class main
-     user root
-     group system wakelock
+#ifndef VENDOR_EDIT
+#Ji.Xu@BSP.CHG.Basic, 2018/10/18 Delete for disable hvdcp,not support
+#service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
+#     class main
+#     user root
+#     group system wakelock
+#endif /*VENDOR_EDIT*/
 
 service smcinvoked /system/bin/smcinvoked
    class main

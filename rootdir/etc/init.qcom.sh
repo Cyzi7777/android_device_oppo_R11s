@@ -84,7 +84,7 @@ start_msm_irqbalance_8939()
 {
 	if [ -f /vendor/bin/msm_irqbalance ]; then
 		case "$platformid" in
-		    "239" | "293" | "294" | "295" | "304" | "338" | "313" |"353")
+		    "239" | "293" | "294" | "295" | "304" | "338" | "313" |"353" | "354")
 			start vendor.msm_irqbalance;;
 		    "349" | "350" )
 			start vendor.msm_irqbal_lb;;
@@ -203,8 +203,22 @@ case "$target" in
                                     setprop qemu.hw.mainkeys 0
                                     ;;
                        "MTP")
-                                    setprop qemu.hw.mainkeys 0
-                                    ;;
+                                #ifdef VENDOR_EDIT
+                                #Haiping.Zhong@PSW.AD.BuildConfig.1071093, 2018/04/23, Modify for Close virtual keys
+                                project_name=`cat /proc/oppoVersion/prjVersion`
+                                case "$project_name" in
+                                        "16051" | "16052" | "16102" | "16103" | "16116" | "16118" )
+                                        setprop qemu.hw.mainkeys 1
+                                        ;;
+                                     *)
+                                        setprop qemu.hw.mainkeys 0
+                                        ;;
+                                esac
+                                 ;;
+                                #else
+                                #   setprop qemu.hw.mainkeys 0
+                                #   ;;
+                                #endif
                        "RCM")
                                     setprop qemu.hw.mainkeys 0
                                     ;;
@@ -267,7 +281,7 @@ case "$target" in
                   ;;
         esac
         ;;
-    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "sm6150")
+    "msm8994" | "msm8992" | "msm8998" | "apq8098_latv" | "sdm845" | "sdm710" | "qcs605" | "sm6150" | "trinket")
         start_msm_irqbalance
         ;;
     "msm8996")
