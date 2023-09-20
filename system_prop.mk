@@ -57,12 +57,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vidc.enc.dcvs.extra-buff-count=2 \
     vidc.enc.target_support_bframe=1
 
-# Location
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.location.osnlp.package=com.google.android.gms \
-    ro.location.osnlp.region.package= \
-    persist.backup.ntpServer="0.pool.ntp.org"
-
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \
